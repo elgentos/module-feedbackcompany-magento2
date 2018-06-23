@@ -1,0 +1,145 @@
+.mm-heading-thefeedbackcompany {
+    color: #666;
+    text-align: left;
+    border: 1px solid rgba(229, 229, 229, 0.27);
+    border-left: 2px solid #ea4c00;
+    font-size: 14px;
+    margin: 20px 0 0;
+    padding: 5px 5px 5px 10px;
+    background: #f8f8f8;
+}
+
+.mm-block-thefeedbackcompany {
+    background: #f8f8f8 no-repeat 8px;
+    border: 1px solid #e5e5e5;
+    border-left: 2px solid #ea4c00;
+    font-size: 12px;
+    color: #303030;
+    margin-bottom: 0;
+    padding: 1.5rem 1.5rem 1.5rem 75px;
+    background-size: 55px;
+}
+
+.mm-block-thefeedbackcompany strong {
+    font-weight: 600;
+    color: #514943;
+}
+
+.mm-block-thefeedbackcompany p {
+    font-size: 12px;
+    margin-left: 9px;
+}
+
+.mm-block-thefeedbackcompany tr a {
+    color: #6d6761;
+}
+
+.mm-block-thefeedbackcompany tr td {
+    padding: 5px 25px 0 0;
+}
+
+.mm-block-thefeedbackcompany .helpbutton {
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+    padding: 20px 10px;
+    font-weight: 700;
+    float: right;
+    background: #514943;
+}
+
+@media only screen and (min-width: 1375px) {
+    .mm-block-thefeedbackcompany .helpbutton {
+        color: #fff;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+        padding: 20px 20px 20px 50px;
+        font-weight: 700;
+        float: right;
+        background: url(../images/icons.png) no-repeat scroll 7px -84px #514943;
+        background-size: 35px;
+    }
+}
+
+.mm-block-thefeedbackcompany .helpbutton:hover {
+    background-color: #373330;
+    text-decoration: none;
+}
+
+.mm-block-thefeedbackcompany .icon1 {
+    background: url(../images/icons.png) no-repeat scroll 2px -3px;
+    background-size: 30px;
+    width: 35px;
+    height: 27px;
+    float: left;
+}
+
+.mm-block-thefeedbackcompany .icon2 {
+    background: url(../images/icons.png) no-repeat scroll 2px -31px;
+    background-size: 31px;
+    width: 35px;
+    height: 25px;
+    float: left;
+}
+
+.fbc-success-import {
+    background-color: #f8f8f8;
+    color: #514943;
+    padding: 4px 0 5px 20px;
+    line-height: 27px;
+    display: block;
+    border: 1px solid #d2d1d1;
+    border-radius: 1px;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.fbc-success-import:before {
+    content: " ✓ Success : ";
+    color: green;
+}
+
+.fbc-error-import {
+    background-color: #f8f8f8;
+    color: #514943;
+    padding: 4px 0 5px 20px;
+    line-height: 27px;
+    display: block;
+    border: 1px solid #d2d1d1;
+    border-radius: 1px;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.fbc-error-import:before {
+    content: " ! ";
+    color: orange;
+}
+
+.fbc-review-message {
+    background-color: #f8f8f8;
+    color: #514943;
+    padding: 4px 0 5px 20px;
+    line-height: 27px;
+    display: block;
+    border: 1px solid #d2d1d1;
+    border-radius: 1px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.fbc-review-message:before {
+    content: " ✖ Error : ";
+    color: red;
+}
+
+#row_magmodules_thefeedbackcompany_reviews_review_summary .field-summary-rating {
+    border-top: 1px solid #e3e3e3;
+    padding-top: 10px;
+    line-height: 22px;
+    margin-top: 10px;
+}
+
+#row_magmodules_thefeedbackcompany_reviews_review_summary .field-summary-rating .rating-box {
+    margin-bottom: 5px;
+    float: left;
+}

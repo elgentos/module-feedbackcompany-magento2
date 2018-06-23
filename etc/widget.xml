@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="fbc_summay_widget" class="Magmodules\TheFeedbackCompany\Block\Widget\Summary" placeholder_image="Magmodules_TheFeedbackCompany::images/summary_widget.png">
+		<label translate="true">The Feedback Company - Summary Widget</label>
+		<description>Add The Feedback Company summary widget</description>
+        <parameters>
+			<parameter name="template" xsi:type="select" visible="true" sort_order="1">
+				<label translate="true">Template</label>
+                <options>
+                    <option name="small" value="Magmodules_TheFeedbackCompany::widget/small.phtml">
+                        <label translate="true">Small Summary Widget</label>
+                    </option>
+                    <option name="medium" value="Magmodules_TheFeedbackCompany::widget/medium.phtml">
+                        <label translate="true">Medium Summary Widget</label>
+                    </option>
+                    <option name="big" value="Magmodules_TheFeedbackCompany::widget/big.phtml">
+                        <label translate="true">Big Summary Widget</label>
+                    </option>
+                </options>
+			</parameter>
+			<parameter name="rich_snippets" xsi:type="select" source_model="Magento\Config\Model\Config\Source\Yesno" visible="true" sort_order="2" >
+				<label translate="true">Add Rich Snippets</label>
+			</parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true" sort_order="3">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

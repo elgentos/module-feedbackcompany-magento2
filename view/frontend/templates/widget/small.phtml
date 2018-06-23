@@ -1,0 +1,44 @@
+<?php
+/**
+ * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * @var $block \Magmodules\TheFeedbackCompany\Block\Widget\Summary
+ */
+?>
+<div class="feedbackcompany-small-widget">
+    <?php if ($summary = $block->getSummaryData()) { ?>
+        <?php if ($block->getRichSnippets()) { ?>
+            <div itemscope itemtype="http://schema.org/WebPage">
+                <div class="feedbackcompany-small-score">
+                    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                        <div class="rating-summary">
+                            <div class="rating-result">
+                                <span style="width: <?php echo (int)$summary['percentage']; ?>%;"></span>
+                            </div>
+                        </div>
+                        <p>
+                            <?php echo __('Rated with %1 - Based on <a href="%2" target="_blank">%3 reviews</a>',
+                                '<span itemprop="ratingValue">' . $block->escapeHtml($summary['score']) . '</span> ' . __('from') . ' <span itemprop="bestRating">' . (int)$summary['score_max'] . '</span>',
+                                $block->escapeUrl($summary['link']),
+                                '<span itemprop="ratingCount">' . (int)$summary['total_reviews'] . '</span>'); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php } else { ?>
+            <div class="feedbackcompany-small-score">
+                <div class="rating-summary">
+                    <div class="rating-result">
+                        <span style="width: <?php echo (int)$summary['percentage']; ?>%;"></span>
+                    </div>
+                </div>
+                <p>
+                    <?php echo __('Rated with %1 - Based on <a href="%2" target="_blank">%3 reviews</a>',
+                        $block->escapeHtml($summary['score']) . ' / ' . (int)$summary['score_max'],
+                        $block->escapeUrl($summary['link']), (int)$summary['total_reviews']); ?>
+                </p>
+            </div>
+        <?php } ?>
+    <?php } ?>
+</div>

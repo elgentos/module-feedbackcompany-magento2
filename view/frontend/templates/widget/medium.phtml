@@ -1,0 +1,47 @@
+<?php
+/**
+ * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * @var $block \Magmodules\TheFeedbackCompany\Block\Widget\Summary
+ */
+?>
+<div class="feedbackcompany-medium-widget">
+    <?php if ($summary = $block->getSummaryData()) { ?>
+        <?php if ($block->getRichSnippets()) { ?>
+            <div itemscope itemtype="http://schema.org/WebPage">
+                <div class="feedbackcompany-small-score">
+                    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                        <div class="rating-summary">
+                            <div class="rating-result">
+                                <span style="width: <?php echo (int)$summary['percentage']; ?>%;"></span>
+                            </div>
+                        </div>
+                        <p>
+                            <?php echo __('%1 is rated with %2 - Based on %3 reviews by <a href="%4" target="_blank">The Feedback Company</a>',
+                                $block->escapeHtml($summary['name']),
+                                '<span itemprop="ratingValue">' . $block->escapeHtml($summary['score']) . '</span> ' . __('from') . ' <span itemprop="bestRating">' . (int)$summary['score_max'] . '</span>',
+                                '<span itemprop="ratingCount">' . (int)$summary['total_reviews'] . '</span>',
+                                $block->escapeUrl($summary['link'])); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php } else { ?>
+            <div class="feedbackcompany-small-score">
+                <div class="rating-summary">
+                    <div class="rating-result">
+                        <span style="width: <?php echo (int)$summary['percentage']; ?>%;"></span>
+                    </div>
+                </div>
+                <p>
+                    <?php echo __('%1 is rated with %2 - Based on %3 reviews by <a href="%4" target="_blank">The Feedback Company</a>',
+                        $block->escapeHtml($summary['name']),
+                        '<span itemprop="ratingValue">' . $block->escapeHtml($summary['score']) . __(' from ') . (int)$summary['score_max'] . '</span>',
+                        '<span itemprop="ratingCount">' . (int)$summary['total_reviews'] . '</span>',
+                        $block->escapeUrl($summary['link'])); ?>
+                </p>
+            </div>
+        <?php } ?>
+    <?php } ?>
+</div>

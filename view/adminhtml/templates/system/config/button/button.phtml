@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @see \Magmodules\TheFeedbackCompany\Block\Adminhtml\System\Config\Form\ImportButton
+ * @var \Magmodules\TheFeedbackCompany\Block\Adminhtml\System\Config\Form\ImportButton $block
+ */
+?>
+<script>
+    require([
+        'jquery',
+        'prototype'
+    ], function (jQuery) {
+        var resultSpan = jQuery('#result');
+        jQuery('#import_button').click(function () {
+            var params = {};
+            new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+                parameters: params,
+                loaderArea: false,
+                asynchronous: true,
+                onCreate: function () {
+                    resultSpan.find('.connecting').show();
+                    jQuery('#stats_result').text('');
+                    jQuery('#button-fbc-note').text('');
+                },
+                onSuccess: function (response) {
+                    console.log(response);
+                    resultSpan.find('.connecting').hide();
+                    var resultText = '';
+                    if (response.status > 200) {
+                        resultText = response.statusText;
+                    } else {
+                        var json = response.responseJSON;
+                        if (typeof json.msg != 'undefined') {
+                            resultText = json.msg;
+                        }
+                    }
+                    jQuery('#stats_result').html(resultText);
+                }
+            });
+        });
+
+    });
+</script>
+<?php echo $block->getButtonHtml() ?>
+<p class="note" id="button-fbc-note"><span><?php echo __('Last import: ') . $block->getLastImported() ?></span></p>

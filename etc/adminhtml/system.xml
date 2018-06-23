@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magmodules" translate="label" sortOrder="500">
+            <label>Magmodules</label>
+        </tab>
+        <section id="magmodules_thefeedbackcompany" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>The Feedback Company</label>
+            <tab>magmodules</tab>
+            <resource>Magmodules_TheFeedbackCompany::config</resource>
+            <group id="branding" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Branding</label>
+                <frontend_model>Magmodules\TheFeedbackCompany\Block\Adminhtml\Magmodules\Header</frontend_model>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="version" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Version</label>
+                    <frontend_model>Magmodules\TheFeedbackCompany\Block\Adminhtml\Magmodules\Version</frontend_model>
+                </field>
+            </group>
+            <group id="api" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>API Details</label>
+                <comment>You can find the necessary information in your The Feedback Company dashboard. As addition next to the activation of this extension we also recommend you to place the appropriate The Feedback Company logo.</comment>
+                <field id="client_id" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>OAuth Client ID</label>
+                    <backend_model>Magmodules\TheFeedbackCompany\Model\System\Config\Backend\ClientId</backend_model>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>OAuth Client Secret</label>
+                </field>
+			</group>                 
+            <group id="reviews" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Merchant Reviews</label>
+                <comment>Add Merchant review data to your store to gain more confidence. Data can be outputted using built in widgets.</comment>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select if you wish to enable the The Feedback Company connector in this Store View.</comment>
+                </field>
+                <field id="cron" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Use Cron</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment>You may use the automatic import functionality which uses your Magento Cronjob.</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+				<field id="generate" translate="label" type="button" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Import</label>
+					<frontend_model>Magmodules\TheFeedbackCompany\Block\Adminhtml\System\Config\Form\ImportButton</frontend_model>
+                    <depends><field id="enabled">1</field></depends>
+				</field>
+                <field id="review_summary" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+					<frontend_model>Magmodules\TheFeedbackCompany\Block\Adminhtml\System\Config\Form\ReviewSummary</frontend_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>				           
+            </group>
+            <group id="invitation" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Review Invitation</label>
+                <comment>Send a review invitation fully automatic a certain amount of days after the client purchased a product in your store. In this way you can automatically gain unique content, trust and re-visites from your clients.</comment>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="connector" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Connectorcode</label>
+                    <comment>Login to https://beheer.feedbackcompany.nl and navigate to "My Account" (Mijn Account). You will find the field: "Connectorcode". Copy and paste this number to this field.</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="status" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Status</label>
+                    <source_model>Magmodules\TheFeedbackCompany\Model\System\Config\Source\Status</source_model>
+                    <comment>Select the status when the order is ready to be sent to The Feedback Company.</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="delay" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Delay</label>
+                    <comment>This will ensure that the customer receives the invitation shortly after receiving the product and not before. This increases the probability of the client sharing his experience.</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="remind_delay" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Remind Delay</label>
+                    <comment>Send the invitation reminder x days after the previous reminder. 0 = none</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="backlog" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum Delay</label>
+                    <comment>Number of days to complete order may last. If it takes longer, than no invitation will be sent.</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="resend" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Resend if Double</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set to "Yes", customers will get new review reminders for every new order.</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="product_reviews" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Reviews</label>
+                    <comment>Please contact support@feedbackcompany.com if you want to gather product reviews.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="debug" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Debug</label>
+                    <comment>Debug invitation calls, once enabled the output can be found in var/debug.log</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

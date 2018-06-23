@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * @var $block \Magmodules\TheFeedbackCompany\Block\Widget\Summary
+ */
+?>
+<div class="feedbackcompany-big-widget">
+    <?php if ($summary = $block->getSummaryData()) { ?>
+        <?php if ($block->getRichSnippets()) { ?>
+            <div itemscope itemtype="http://schema.org/WebPage">
+                <div class="feedbackcompany-big-score">
+                    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                        <p>
+                            <?php echo __(
+                                '<span class="score">Rated with %1</span> <span class="text">Based on <a href="%2" target="_blank">%3 reviews</a></span>',
+                                '<span itemprop="ratingValue">' . $block->escapeHtml($summary['score']) . '</span> ' . __('from') . ' <span itemprop="bestRating">' . (int)$summary['score_max'] . '</span>',
+                                $block->escapeUrl($summary['link']),
+                                '<span itemprop="ratingCount">' . (int)$summary['total_reviews'] . '</span>'
+                            ); ?>
+                        </p>
+                        <div class="rating-summary">
+                            <div class="rating-result">
+                                <span style="width: <?php echo (int)$summary['percentage']; ?>%;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } else { ?>
+            <div class="feedbackcompany-big-score">
+                <p>
+                    <?php echo __(
+                        '<span class="score">Rated with %1</span> <span class="text">Based on <a href="%2" target="_blank">%3 Customer Reviews</a></span>',
+                        '<span>' . $block->escapeHtml($summary['score']) . '</span> ' . __('from') . ' <span>' . (int)$summary['score_max'] . '</span>',
+                        $block->escapeUrl($summary['link']),
+                        '<span>' . (int)$summary['total_reviews'] . '</span>'
+                    ); ?>
+                </p>
+                <div class="rating-summary">
+                    <div class="rating-result">
+                        <span style="width: <?php echo (int)$summary['percentage']; ?>%;"></span>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    <?php } ?>
+</div>

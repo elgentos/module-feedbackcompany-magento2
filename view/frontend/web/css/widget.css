@@ -1,0 +1,37 @@
+.feedbackcompany-small-score .rating-summary {
+    float: left;
+    margin-right: 10px;
+}
+
+.feedbackcompany-small-score p {
+    display: block;
+    padding: 4px;
+    margin-bottom: 0;
+}
+
+.feedbackcompany-big-score {
+    background: #f8f8f8 url(../images/tfbc_brand.png) no-repeat top 27px left 43px;
+    background-size: 155px;
+    padding: 12px;
+    width: 240px;
+    height: 165px;
+}
+
+.feedbackcompany-big-score p {
+    display: block;
+    margin-top: 80px;
+    margin-bottom: 5px;
+}
+
+.feedbackcompany-big-score .score {
+    font-weight: 700;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(126, 128, 126, 0.08);
+    display: block;
+}
+
+.feedbackcompany-big-score .text {
+    display: block;
+    font-size: 13px;
+    margin-top: 8px;
+}
