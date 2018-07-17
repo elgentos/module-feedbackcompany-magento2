@@ -11,7 +11,7 @@
             <label>Magmodules</label>
         </tab>
         <section id="magmodules_thefeedbackcompany" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>The Feedback Company</label>
+            <label>Feedback Company</label>
             <tab>magmodules</tab>
             <resource>Magmodules_TheFeedbackCompany::config</resource>
             <group id="branding" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -31,7 +31,7 @@
             </group>
             <group id="api" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>API Details</label>
-                <comment>You can find the necessary information in your The Feedback Company dashboard. As addition next to the activation of this extension we also recommend you to place the appropriate The Feedback Company logo.</comment>
+                <comment>You can find the necessary information in your Feedback Company dashboard. As addition next to the activation of this extension we also recommend you to place the appropriate Feedback Company logo.</comment>
                 <field id="client_id" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>OAuth Client ID</label>
                     <backend_model>Magmodules\TheFeedbackCompany\Model\System\Config\Backend\ClientId</backend_model>
@@ -39,14 +39,14 @@
                 <field id="client_secret" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>OAuth Client Secret</label>
                 </field>
-			</group>                 
+			</group>
             <group id="reviews" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Merchant Reviews</label>
                 <comment>Add Merchant review data to your store to gain more confidence. Data can be outputted using built in widgets.</comment>
                 <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <comment>Select if you wish to enable the The Feedback Company connector in this Store View.</comment>
+                    <comment>Select if you wish to enable the Feedback Company connector in this Store View.</comment>
                 </field>
                 <field id="cron" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Use Cron</label>
@@ -62,7 +62,7 @@
                 <field id="review_summary" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
 					<frontend_model>Magmodules\TheFeedbackCompany\Block\Adminhtml\System\Config\Form\ReviewSummary</frontend_model>
                     <depends><field id="enabled">1</field></depends>
-                </field>				           
+                </field>
             </group>
             <group id="invitation" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Review Invitation</label>
@@ -73,13 +73,13 @@
                 </field>
                 <field id="connector" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Connectorcode</label>
-                    <comment>Login to https://beheer.feedbackcompany.nl and navigate to "My Account" (Mijn Account). You will find the field: "Connectorcode". Copy and paste this number to this field.</comment>
+                    <comment>Login to https://www.feedbackcompany.com/login and navigate to "My Account" (Mijn Account). You will find the field: "Connectorcode". Copy and paste this number to this field.</comment>
                     <depends><field id="enabled">1</field></depends>
                 </field>
                 <field id="status" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Status</label>
                     <source_model>Magmodules\TheFeedbackCompany\Model\System\Config\Source\Status</source_model>
-                    <comment>Select the status when the order is ready to be sent to The Feedback Company.</comment>
+                    <comment>Select the status when the order is ready to be sent to Feedback Company.</comment>
                     <depends><field id="enabled">1</field></depends>
                 </field>
                 <field id="delay" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -105,7 +105,7 @@
                 </field>
                 <field id="product_reviews" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Product Reviews</label>
-                    <comment>Please contact support@feedbackcompany.com if you want to gather product reviews.</comment>
+                    <comment>Please contact helpdesk@feedbackcompany.com if you want to gather product reviews.</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends><field id="enabled">1</field></depends>
                 </field>

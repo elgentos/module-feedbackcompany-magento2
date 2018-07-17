@@ -18,7 +18,7 @@
                             </div>
                         </div>
                         <p>
-                            <?php echo __('%1 is rated with %2 - Based on %3 reviews by <a href="%4" target="_blank">The Feedback Company</a>',
+                            <?php echo __('%1 is rated with %2 - Based on %3 reviews by <a href="%4" target="_blank">Feedback Company</a>',
                                 $block->escapeHtml($summary['name']),
                                 '<span itemprop="ratingValue">' . $block->escapeHtml($summary['score']) . '</span> ' . __('from') . ' <span itemprop="bestRating">' . (int)$summary['score_max'] . '</span>',
                                 '<span itemprop="ratingCount">' . (int)$summary['total_reviews'] . '</span>',
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <p>
-                    <?php echo __('%1 is rated with %2 - Based on %3 reviews by <a href="%4" target="_blank">The Feedback Company</a>',
+                    <?php echo __('%1 is rated with %2 - Based on %3 reviews by <a href="%4" target="_blank">Feedback Company</a>',
                         $block->escapeHtml($summary['name']),
                         '<span itemprop="ratingValue">' . $block->escapeHtml($summary['score']) . __(' from ') . (int)$summary['score_max'] . '</span>',
                         '<span itemprop="ratingCount">' . (int)$summary['total_reviews'] . '</span>',

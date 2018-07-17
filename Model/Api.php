@@ -17,9 +17,9 @@ use Magento\Sales\Model\Order;
 class Api
 {
 
-    const FBC_TOKEN_URL = 'https://beoordelingen.feedbackcompany.nl/api/v1/oauth2/token?client_id=%s&client_secret=%s&grant_type=authorization_code';
-    const FBC_REVIEWS_URL = 'https://beoordelingen.feedbackcompany.nl/api/v1/review/summary/';
-    const FBC_POST_URL = 'https://connect.feedbackcompany.nl/feedback/';
+    const FBC_TOKEN_URL = 'https://www.feedbackcompany.com/api/v1/oauth2/token?client_id=%s&client_secret=%s&grant_type=authorization_code';
+    const FBC_REVIEWS_URL = 'https://www.feedbackcompany.com/api/v1/review/summary/';
+    const FBC_POST_URL = 'https://www.feedbackcompany.com/feedback/';
     const DEFAULT_TIMEOUT = 30;
 
     private $inv;
