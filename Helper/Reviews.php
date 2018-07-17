@@ -23,7 +23,6 @@ class Reviews extends AbstractHelper
     const XML_PATH_REVIEWS_CLIENT_TOKEN = 'magmodules_thefeedbackcompany/api/client_token';
     const XML_PATH_REVIEWS_RESULT = 'magmodules_thefeedbackcompany/reviews/result';
     const XML_PATH_REVIEWS_LAST_IMPORT = 'magmodules_thefeedbackcompany/reviews/last_import';
-    const REVIEWS_URL = 'https://www.feedbackcompany.com/api/v1/review/all/';
 
     private $datetime;
     private $timezone;

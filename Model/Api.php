@@ -179,7 +179,6 @@ class Api
             $data['client_token'] = $this->getNewClientToken($data);
             if (empty($data['client_token'])) {
                 $msg = __('Could not fetch new client token');
-
                 return $this->general->createResponseError($msg);
             } else {
                 $this->rev->setClientToken($data['client_token'], $data['store_id']);
@@ -195,6 +194,32 @@ class Api
             $curl->connect($url);
             $response = $curl->read();
             $responseCode = $curl->getInfo(CURLINFO_HTTP_CODE);
+
+            // If the review call failed due to an expired access token (response code 404)
+            if ($responseCode == 404) {
+
+                // Get a new access token
+                $data['client_token'] = $this->getNewClientToken($data);
+                if (empty($data['client_token'])) {
+                    $msg = __('Could not fetch new client token');
+                    return $this->general->createResponseError($msg);
+                } else {
+                    $this->rev->setClientToken($data['client_token'], $data['store_id']);
+                }
+
+                // Retry the review call with the new access token
+                $curl->addOption(CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $data['client_token']]);
+                $curl->connect($url);
+                $response = $curl->read();
+                $responseCode = $curl->getInfo(CURLINFO_HTTP_CODE);
+
+                // If the review call still fails, report an error
+                if ($responseCode != 200) {
+                    $msg = __('Could not fetch new client token');
+                    return $this->general->createResponseError($msg);
+                }
+            }
+
             $result = json_decode($response, true);
 
             if (!empty($result['error'])) {
