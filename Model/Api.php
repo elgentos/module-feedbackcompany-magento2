@@ -17,9 +17,9 @@ use Magento\Sales\Model\Order;
 class Api
 {
 
-    const FBC_TOKEN_URL = 'https://beoordelingen.feedbackcompany.nl/api/v1/oauth2/token?client_id=%s&client_secret=%s&grant_type=authorization_code';
-    const FBC_REVIEWS_URL = 'https://beoordelingen.feedbackcompany.nl/api/v1/review/summary/';
-    const FBC_POST_URL = 'https://connect.feedbackcompany.nl/feedback/';
+    const FBC_TOKEN_URL = 'https://www.feedbackcompany.com/api/v1/oauth2/token?client_id=%s&client_secret=%s&grant_type=authorization_code';
+    const FBC_REVIEWS_URL = 'https://www.feedbackcompany.com/api/v1/review/summary/';
+    const FBC_POST_URL = 'https://www.feedbackcompany.com/feedback/';
     const DEFAULT_TIMEOUT = 30;
 
     private $inv;
@@ -179,7 +179,6 @@ class Api
             $data['client_token'] = $this->getNewClientToken($data);
             if (empty($data['client_token'])) {
                 $msg = __('Could not fetch new client token');
-
                 return $this->general->createResponseError($msg);
             } else {
                 $this->rev->setClientToken($data['client_token'], $data['store_id']);
@@ -195,6 +194,29 @@ class Api
             $curl->connect($url);
             $response = $curl->read();
             $responseCode = $curl->getInfo(CURLINFO_HTTP_CODE);
+
+            // If the review call failed due to an expired access token (response code 404)
+            if ($responseCode == 404) {
+
+                // Get a new access token
+                $data['client_token'] = $this->getNewClientToken($data);
+                if (empty($data['client_token'])) {
+                    $msg = __('Could not fetch new client token');
+                    return $this->general->createResponseError($msg);
+                } else {
+                    $this->rev->setClientToken($data['client_token'], $data['store_id']);
+                }
+
+                // Retry the review call with the new access token
+                $curl->addOption(CURLOPT_URL, $url);
+                $curl->addOption(CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $data['client_token']]);
+                $curl->addOption(CURLOPT_RETURNTRANSFER, 1);
+                $curl->addOption(CURLOPT_SSL_VERIFYPEER, false);
+                $curl->connect($url);
+                $response = $curl->read();
+                $responseCode = $curl->getInfo(CURLINFO_HTTP_CODE);
+            }
+
             $result = json_decode($response, true);
 
             if (!empty($result['error'])) {

@@ -1,6 +1,6 @@
 {
   "name": "magmodules/the-feedback-company",
-  "description": "The Feedback Company integration for Magento 2",
+  "description": "Feedback Company integration for Magento 2",
   "type": "magento2-module",
   "version": "1.0.3",
   "license": [
