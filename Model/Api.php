@@ -208,16 +208,13 @@ class Api
                 }
 
                 // Retry the review call with the new access token
+                $curl->addOption(CURLOPT_URL, $url);
                 $curl->addOption(CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $data['client_token']]);
+                $curl->addOption(CURLOPT_RETURNTRANSFER, 1);
+                $curl->addOption(CURLOPT_SSL_VERIFYPEER, false);
                 $curl->connect($url);
                 $response = $curl->read();
                 $responseCode = $curl->getInfo(CURLINFO_HTTP_CODE);
-
-                // If the review call still fails, report an error
-                if ($responseCode != 200) {
-                    $msg = __('Could not fetch new client token');
-                    return $this->general->createResponseError($msg);
-                }
             }
 
             $result = json_decode($response, true);
