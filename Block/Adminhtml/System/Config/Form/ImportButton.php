@@ -14,8 +14,19 @@ use Magmodules\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 class ImportButton extends Field
 {
 
+    /**
+     * @var ReviewsHelper
+     */
     private $rev;
+
+    /**
+     * @var \Magento\Framework\App\RequestInterface
+     */
     private $request;
+
+    /**
+     * @var string
+     */
     protected $_template = 'Magmodules_TheFeedbackCompany::system/config/button/button.phtml';
 
     /**

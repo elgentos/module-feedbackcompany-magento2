@@ -14,7 +14,10 @@ use Magmodules\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 class Summary extends Template implements BlockInterface
 {
 
-    protected $rev;
+    /**
+     * @var ReviewsHelper
+     */
+    public $rev;
 
     /**
      * Summary constructor.
@@ -34,7 +37,7 @@ class Summary extends Template implements BlockInterface
     /**
      * constructor
      */
-    protected function _construct()
+    public function _construct()
     {
         $template = $this->getData('template');
         parent::_construct();
@@ -59,8 +62,8 @@ class Summary extends Template implements BlockInterface
     public function getSummaryData()
     {
         $storeId = $this->_storeManager->getStore()->getId();
-        $summary_data = $this->rev->getSummaryData($storeId);
+        $summaryData = $this->rev->getSummaryData($storeId);
 
-        return $summary_data;
+        return $summaryData;
     }
 }
