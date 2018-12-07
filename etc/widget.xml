@@ -7,8 +7,8 @@
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget id="fbc_summay_widget" class="Magmodules\TheFeedbackCompany\Block\Widget\Summary" placeholder_image="Magmodules_TheFeedbackCompany::images/summary_widget.png">
-		<label translate="true">Feedback Company - Summary Widget</label>
-		<description>Add Feedback Company summary widget</description>
+		<label translate="true">The Feedback Company - Summary Widget</label>
+		<description>Add The Feedback Company summary widget</description>
         <parameters>
 			<parameter name="template" xsi:type="select" visible="true" sort_order="1">
 				<label translate="true">Template</label>

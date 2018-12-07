@@ -11,7 +11,10 @@ use Magmodules\TheFeedbackCompany\Model\Api as ApiModel;
 class ImportReviews
 {
 
-    protected $apiModel;
+    /**
+     * @var ApiModel
+     */
+    private $apiModel;
 
     /**
      * ImportReviews constructor.

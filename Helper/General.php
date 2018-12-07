@@ -14,6 +14,7 @@ use Magento\Store\Model\ScopeInterface;
 use Magento\Config\Model\ResourceModel\Config;
 use Magento\Framework\Module\ModuleListInterface;
 use Magento\Framework\App\ProductMetadataInterface;
+use Magmodules\TheFeedbackCompany\Logger\FeedbackLogger;
 
 class General extends AbstractHelper
 {
@@ -21,11 +22,35 @@ class General extends AbstractHelper
     const MODULE_CODE = 'Magmodules_TheFeedbackCompany';
     const XML_PATH_EXTENSION_ENABLED = 'magmodules_thefeedbackcompany/general/enabled';
 
+    /**
+     * @var ModuleListInterface
+     */
     private $moduleList;
+
+    /**
+     * @var ProductMetadataInterface
+     */
     private $metadata;
+
+    /**
+     * @var StoreManagerInterface
+     */
     private $storeManager;
+
+    /**
+     * @var ObjectManagerInterface
+     */
     private $objectManager;
+
+    /**
+     * @var Config
+     */
     private $config;
+
+    /**
+     * @var FeedbackLogger
+     */
+    private $logger;
 
     /**
      * General constructor.
@@ -36,6 +61,7 @@ class General extends AbstractHelper
      * @param ModuleListInterface      $moduleList
      * @param ProductMetadataInterface $metadata
      * @param Config                   $config
+     * @param FeedbackLogger           $logger
      */
     public function __construct(
         Context $context,
@@ -43,13 +69,15 @@ class General extends AbstractHelper
         StoreManagerInterface $storeManager,
         ModuleListInterface $moduleList,
         ProductMetadataInterface $metadata,
-        Config $config
+        Config $config,
+        FeedbackLogger $logger
     ) {
         $this->objectManager = $objectManager;
         $this->storeManager = $storeManager;
         $this->moduleList = $moduleList;
         $this->metadata = $metadata;
         $this->config = $config;
+        $this->logger = $logger;
         parent::__construct($context);
     }
 
@@ -143,5 +171,14 @@ class General extends AbstractHelper
     public function getMagentoVersion()
     {
         return $this->metadata->getVersion();
+    }
+
+    /**
+     * @param $id
+     * @param $data
+     */
+    public function addTolog($id, $data)
+    {
+        $this->logger->add($id, $data);
     }
 }

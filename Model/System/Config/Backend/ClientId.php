@@ -18,7 +18,10 @@ use Magento\Framework\Data\Collection\AbstractDb;
 class ClientId extends Value
 {
 
-    protected $rev;
+    /**
+     * @var ReviewsHelper
+     */
+    private $rev;
 
     /**
      * ClientId constructor.

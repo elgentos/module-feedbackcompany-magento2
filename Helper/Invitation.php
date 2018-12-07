@@ -7,10 +7,10 @@
 namespace Magmodules\TheFeedbackCompany\Helper;
 
 use Magento\Framework\App\Helper\Context;
-use Magento\Catalog\Model\ProductRepository;
-use Magento\Catalog\Helper\Image;
+use Magento\Catalog\Model\ProductFactory;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Framework\UrlInterface;
 use Magmodules\TheFeedbackCompany\Helper\General as GeneralHelper;
 
 class Invitation extends AbstractHelper
@@ -27,29 +27,36 @@ class Invitation extends AbstractHelper
     const XML_PATH_INVITATION_PREVIEWS = 'magmodules_thefeedbackcompany/invitation/product_reviews';
     const XML_PATH_INVITATION_DEBUG = 'magmodules_thefeedbackcompany/invitation/debug';
 
-    private $productRepository;
-    private $imgHelper;
+    /**
+     * @var ProductFactory
+     */
+    private $productFactory;
+
+    /**
+     * @var General
+     */
     private $general;
+
+    /**
+     * @var StoreManagerInterface
+     */
     private $storeManager;
 
     /**
      * Invitation constructor.
      *
      * @param Context               $context
-     * @param ProductRepository     $productRepository
+     * @param ProductFactory        $productFactory
      * @param StoreManagerInterface $storeManager
-     * @param Image                 $imgHelper
      * @param General               $generalHelper
      */
     public function __construct(
         Context $context,
-        ProductRepository $productRepository,
+        ProductFactory $productFactory,
         StoreManagerInterface $storeManager,
-        Image $imgHelper,
         GeneralHelper $generalHelper
     ) {
-        $this->productRepository = $productRepository;
-        $this->imgHelper = $imgHelper;
+        $this->productFactory = $productFactory;
         $this->general = $generalHelper;
         $this->storeManager = $storeManager;
         parent::__construct($context);
@@ -144,17 +151,57 @@ class Invitation extends AbstractHelper
         $productData = [];
         foreach ($products as $item) {
             $this->storeManager->setCurrentStore($storeId);
-            $product = $this->productRepository->getById($item->getProductId());
+            /** @var \Magento\Catalog\Model\Product $product */
+            $product = $this->productFactory->create()->setStoreId($storeId)->load($item->getProductId());
             $productData['filtercode'][] = trim($product->getSku());
             if ($product->getStatus() == '1') {
-                $img = $this->imgHelper->init($product, 'product_thumbnail_image')->getUrl();
                 $productData['product_url[' . $i . ']'] = $product->getProductUrl();
                 $productData['product_text[' . $i . ']'] = $item->getName();
                 $productData['product_ids[' . $i . ']'] = 'SKU=' . $product->getSku();
-                $productData['product_photo[' . $i . ']'] = $img;
+                $productData['product_photo[' . $i . ']'] = $this->getProductImage($product, $storeId);
+                $i++;
             }
         }
 
         return $productData;
+    }
+
+    /**
+     * @param \Magento\Catalog\Model\Product $product
+     * @param                                $storeId
+     *
+     * @return string
+     */
+    public function getProductImage($product, $storeId)
+    {
+        $url = $this->storeManager->getStore($storeId)->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
+        $image = $product->getImage();
+        if ($image && $image != 'no_selection') {
+            return $url . 'catalog/product' . $image;
+        }
+
+        return '';
+    }
+
+    /**
+     * @param \Magento\Sales\Model\Order $order
+     *
+     * @return mixed
+     */
+    public function getCustomerName($order)
+    {
+        if ($order->getCustomerId()) {
+            return $order->getCustomerName();
+        }
+
+        $firstname = $order->getBillingAddress()->getFirstname();
+        $middlename = $order->getBillingAddress()->getMiddlename();
+        $lastname = $order->getBillingAddress()->getLastname();
+
+        if (!empty($middlename)) {
+            return $firstname . ' ' . $middlename . ' ' . $lastname;
+        } else {
+            return $firstname . ' ' . $lastname;
+        }
     }
 }
