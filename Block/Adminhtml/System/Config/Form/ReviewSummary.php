@@ -14,8 +14,19 @@ use Magmodules\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 class ReviewSummary extends Field
 {
 
+    /**
+     * @var string
+     */
     protected $_template = 'Magmodules_TheFeedbackCompany::system/config/fieldset/summary.phtml';
+
+    /**
+     * @var ReviewsHelper
+     */
     private $rev;
+
+    /**
+     * @var \Magento\Framework\App\RequestInterface
+     */
     private $request;
 
     /**
@@ -31,6 +42,14 @@ class ReviewSummary extends Field
         $this->rev = $revHelper;
         $this->request = $context->getRequest();
         parent::__construct($context, $data);
+    }
+
+    /**
+     * @return null
+     */
+    public function getCacheLifetime()
+    {
+        return null;
     }
 
     /**

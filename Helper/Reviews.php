@@ -25,11 +25,29 @@ class Reviews extends AbstractHelper
     const XML_PATH_REVIEWS_LAST_IMPORT = 'magmodules_thefeedbackcompany/reviews/last_import';
     const REVIEWS_URL = 'https://beoordelingen.feedbackcompany.nl/api/v1/review/all/';
 
+    /**
+     * @var DateTime
+     */
     private $datetime;
+
+    /**
+     * @var TimezoneInterface
+     */
     private $timezone;
+
+    /**
+     * @var StoreManagerInterface
+     */
     private $storeManager;
+
+    /**
+     * @var General
+     */
     private $general;
-    private $config;
+
+    /**
+     * @var TypeListInterface
+     */
     private $cacheTypeList;
 
     /**

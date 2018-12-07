@@ -16,11 +16,30 @@ use Magmodules\TheFeedbackCompany\Model\Api as ApiModel;
 class Import extends Action
 {
 
-    protected $resultJsonFactory;
-    protected $apiModel;
-    protected $request;
-    protected $rev;
-    protected $cacheTypeList;
+    /**
+     * @var JsonFactory
+     */
+    private $resultJsonFactory;
+
+    /**
+     * @var ApiModel
+     */
+    private $apiModel;
+
+    /**
+     * @var \Magento\Framework\App\RequestInterface
+     */
+    private $request;
+
+    /**
+     * @var ReviewsHelper
+     */
+    private $rev;
+
+    /**
+     * @var TypeListInterface
+     */
+    private $cacheTypeList;
 
     /**
      * Import constructor.
