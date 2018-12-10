@@ -111,7 +111,7 @@
                 </field>
                 <field id="debug" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Debug</label>
-                    <comment>Debug invitation calls, once enabled the output can be found in var/log/thefeedbackcompany.log</comment>
+                    <comment>Debug invitation calls, once enabled the output can be found in var/log/feedbackcompany.log</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends><field id="enabled">1</field></depends>
                 </field>

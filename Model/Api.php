@@ -140,7 +140,7 @@ class Api
             $body = substr($response, $headerSize);
 
             if (!empty($config['debug'])) {
-                $debugMsg = 'TheFeedbackCompany - sendInvitation #' . $request['orderNumber'] . ' ';
+                $debugMsg = 'FeedbackCompany - sendInvitation #' . $request['orderNumber'] . ' ';
                 if ($responseCode == 500) {
                     $debugMsg .= '(status: ' . $responseCode . ', Request: ' . urldecode($url) . ')';
                 } else {
@@ -153,7 +153,7 @@ class Api
             }
         } catch (\Exception $e) {
             if (!empty($config['debug'])) {
-                $debugMsg = 'TheFeedbackCompany - sendInvitation #' . $request['orderNumber'] . ' ';
+                $debugMsg = 'FeedbackCompany - sendInvitation #' . $request['orderNumber'] . ' ';
                 $debugMsg .= '(Error: ' . $e . ', Request: ' . urldecode($url) . ')';
                 $this->general->addTolog('Invite', $debugMsg);
             }

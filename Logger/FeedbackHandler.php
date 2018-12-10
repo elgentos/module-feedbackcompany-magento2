@@ -20,5 +20,5 @@ class FeedbackHandler extends Base
     /**
      * @var string
      */
-    protected $fileName = '/var/log/thefeedbackcompany.log';
+    protected $fileName = '/var/log/feedbackcompany.log';
 }
