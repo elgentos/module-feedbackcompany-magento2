@@ -11,7 +11,6 @@ use Magmodules\TheFeedbackCompany\Helper\Invitation as InvitationHelper;
 use Magmodules\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 use Magento\Framework\HTTP\Adapter\Curl;
 use Magento\Framework\Stdlib\DateTime;
-use Psr\Log\LoggerInterface;
 use Magento\Sales\Model\Order;
 
 class Api
@@ -22,11 +21,29 @@ class Api
     const FBC_POST_URL = 'https://www.feedbackcompany.com/feedback/';
     const DEFAULT_TIMEOUT = 30;
 
+    /**
+     * @var InvitationHelper
+     */
     private $inv;
+
+    /**
+     * @var ReviewsHelper
+     */
     private $rev;
+
+    /**
+     * @var Curl
+     */
     private $curl;
-    private $logger;
+
+    /**
+     * @var GeneralHelper
+     */
     private $general;
+
+    /**
+     * @var DateTime
+     */
     private $date;
 
     /**
@@ -37,28 +54,25 @@ class Api
      * @param GeneralHelper    $generalHelper
      * @param Curl             $curl
      * @param DateTime         $dateTime
-     * @param LoggerInterface  $logger
      */
     public function __construct(
         InvitationHelper $invHelper,
         ReviewsHelper $revHelper,
         GeneralHelper $generalHelper,
         Curl $curl,
-        DateTime $dateTime,
-        LoggerInterface $logger
+        DateTime $dateTime
     ) {
         $this->inv = $invHelper;
         $this->rev = $revHelper;
         $this->general = $generalHelper;
         $this->curl = $curl;
         $this->date = $dateTime;
-        $this->logger = $logger;
     }
 
     /**
      * Post invitation function.
      *
-     * @param Order $order
+     * @param \Magento\Sales\Model\Order $order
      *
      * @return bool|string
      */
@@ -75,8 +89,8 @@ class Api
             return false;
         }
 
-        $date_diff = (time() - $this->date->strToTime($order->getCreatedAt()));
-        if ($date_diff > $config['backlog']) {
+        $dateDiff = (time() - $this->date->strToTime($order->getCreatedAt()));
+        if ($dateDiff > $config['backlog']) {
             return false;
         }
 
@@ -86,18 +100,18 @@ class Api
         $request['resendIfDouble'] = $config['resend'];
         $request['remindDelay'] = $config['remind_delay'];
         $request['delay'] = $config['delay'];
-        $request['aanhef'] = $order->getCustomerName();
+        $request['aanhef'] = $this->inv->getCustomerName($order);
         $request['user'] = $order->getCustomerEmail();
         $request['connector'] = $config['connector'];
 
         if ($config['product_reviews']) {
-            $product_data = $this->inv->getProductData($order->getAllVisibleItems(), $storeId);
-            $post_data = array_merge($request, $product_data);
+            $productData = $this->inv->getProductData($order->getAllVisibleItems(), $storeId);
+            $postData = array_merge($request, $productData);
         } else {
-            $post_data = $request;
+            $postData = $request;
         }
 
-        $result = $this->postInvitation($post_data, $config);
+        $result = $this->postInvitation($postData, $config);
 
         return $result;
     }
@@ -119,23 +133,29 @@ class Api
             $curl->addOption(CURLOPT_RETURNTRANSFER, 1);
             $curl->addOption(CURLOPT_CONNECTTIMEOUT, self::DEFAULT_TIMEOUT);
             $curl->connect($url);
+
             $response = $curl->read();
             $responseCode = $curl->getInfo(CURLINFO_HTTP_CODE);
-            $header_size = $curl->getInfo(CURLINFO_HEADER_SIZE);
-            $body = substr($response, $header_size);
+            $headerSize = $curl->getInfo(CURLINFO_HEADER_SIZE);
+            $body = substr($response, $headerSize);
+
             if (!empty($config['debug'])) {
-                $debugMsg = 'TheFeedbackCompany - sendInvitation #' . $request['orderNumber'] . ' ';
-                $debugMsg .= '(status: ' . $responseCode . ', Body: ' . $body . ', Request: ' . $url . ')';
-                $this->logger->debug($debugMsg);
+                $debugMsg = 'FeedbackCompany - sendInvitation #' . $request['orderNumber'] . ' ';
+                if ($responseCode == 500) {
+                    $debugMsg .= '(status: ' . $responseCode . ', Request: ' . urldecode($url) . ')';
+                } else {
+                    $debugMsg .= '(status: ' . $responseCode . ', Body: ' . $body . ', Request: ' . urldecode($url) . ')';
+                }
+                $this->general->addTolog('Invite', $debugMsg);
             }
             if ($responseCode == 200) {
                 return $body;
             }
         } catch (\Exception $e) {
             if (!empty($config['debug'])) {
-                $debugMsg = 'TheFeedbackCompany - sendInvitation #' . $request['orderNumber'] . ' ';
-                $debugMsg .= '(Error: ' . $e . ', Request: ' . $url . ')';
-                $this->logger->debug($debugMsg);
+                $debugMsg = 'FeedbackCompany - sendInvitation #' . $request['orderNumber'] . ' ';
+                $debugMsg .= '(Error: ' . $e . ', Request: ' . urldecode($url) . ')';
+                $this->general->addTolog('Invite', $debugMsg);
             }
         }
 
@@ -154,12 +174,12 @@ class Api
         $oauthData = $this->rev->getUniqueOauthData();
         $result = [];
         foreach ($oauthData as $key => $data) {
-            $review_data = $this->updateReviewStats($data);
-            if ($review_data['status'] == 'token-error') {
+            $reviewData = $this->updateReviewStats($data);
+            if ($reviewData['status'] == 'token-error') {
                 $data['client_token'] = '';
-                $review_data = $this->updateReviewStats($data);
+                $reviewData = $this->updateReviewStats($data);
             }
-            $result[$key] = $review_data;
+            $result[$key] = $reviewData;
         }
         $result = $this->rev->saveReviewResult($result, $type);
 
@@ -241,12 +261,13 @@ class Api
 
             return $this->general->createResponseError($msg);
         } catch (\Exception $e) {
+            $this->general->addTolog('Update Reviews', $e->getMessage());
             return $this->general->createResponseError($e);
         }
     }
 
     /**
-     * Retreive new client token.
+     * Retrieve new client token.
      *
      * @param $data
      *
@@ -266,7 +287,7 @@ class Api
                 return $response->access_token;
             }
         } catch (\Exception $e) {
-            return false;
+            $this->general->addTolog('ClientToken', $e->getMessage());
         }
 
         return false;

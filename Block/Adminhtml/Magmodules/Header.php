@@ -14,20 +14,24 @@ use Magento\Backend\Block\Template\Context;
 class Header extends Field
 {
 
-    /** Module and support code for loading image */
     const MODULE_CODE = 'feedbackcompany-magento2';
-
-    /** Support and contact link */
     const MODULE_SUPPORT_LINK = 'https://www.magmodules.eu/help/' . self::MODULE_CODE;
     const MODULE_CONTACT_LINK = 'https://www.magmodules.eu/support.html?ext=' . self::MODULE_CODE;
 
+    /**
+     * @var GeneralHelper
+     */
     private $general;
+
+    /**
+     * @var string
+     */
     protected $_template = 'Magmodules_TheFeedbackCompany::system/config/fieldset/header.phtml';
 
     /**
      * Header constructor.
      *
-     * @param Context $context
+     * @param Context       $context
      * @param GeneralHelper $general
      */
     public function __construct(
@@ -40,6 +44,7 @@ class Header extends Field
 
     /**
      * @param AbstractElement $element
+     *
      * @return string
      */
     public function render(AbstractElement $element)

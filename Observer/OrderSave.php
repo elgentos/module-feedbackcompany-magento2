@@ -9,21 +9,33 @@ namespace Magmodules\TheFeedbackCompany\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
 use Magmodules\TheFeedbackCompany\Model\Api as ApiModel;
+use Psr\Log\LoggerInterface;
 
 class OrderSave implements ObserverInterface
 {
 
-    protected $apiModel;
+    /**
+     * @var ApiModel
+     */
+    private $apiModel;
+
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
 
     /**
      * OrderSave constructor.
      *
-     * @param ApiModel $apiModel
+     * @param ApiModel        $apiModel
+     * @param LoggerInterface $logger
      */
     public function __construct(
-        ApiModel $apiModel
+        ApiModel $apiModel,
+        LoggerInterface $logger
     ) {
         $this->apiModel = $apiModel;
+        $this->logger = $logger;
     }
 
     /**
@@ -31,7 +43,12 @@ class OrderSave implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        $order = $observer->getEvent()->getOrder();
-        $this->apiModel->sendInvitation($order);
+        try {
+            $order = $observer->getEvent()->getOrder();
+            $this->apiModel->sendInvitation($order);
+        } catch (\Exception $e) {
+            $this->logger->critical($e);
+            $this->logger->debug('exception');
+        }
     }
 }
