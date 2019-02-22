@@ -215,8 +215,8 @@ class Api
             $response = $curl->read();
             $responseCode = $curl->getInfo(CURLINFO_HTTP_CODE);
 
-            // If the review call failed due to an expired access token (response code 404)
-            if ($responseCode == 404) {
+            // If the review call failed due to an expired access token (response code 401)
+            if ($responseCode == 401) {
 
                 // Get a new access token
                 $data['client_token'] = $this->getNewClientToken($data);
