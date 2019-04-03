@@ -1,5 +1,5 @@
 {
-  "name": "magmodules/the-feedback-company",
+  "name": "the-feedback-company",
   "description": "Feedback Company integration for Magento 2",
   "type": "magento2-module",
   "version": "1.1.2",
@@ -12,7 +12,7 @@
   "autoload": {
     "files": [ "registration.php" ],
     "psr-4": {
-      "Magmodules\\TheFeedbackCompany\\": ""
+      "FeedbackCompany\\": ""
     }
   }
 }
