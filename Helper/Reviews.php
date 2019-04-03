@@ -4,9 +4,9 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Helper;
+namespace FeedbackCompany\Helper;
 
-use Magmodules\TheFeedbackCompany\Helper\General as GeneralHelper;
+use FeedbackCompany\Helper\General as GeneralHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\StoreManagerInterface;
@@ -17,12 +17,12 @@ use Magento\Framework\App\Cache\TypeListInterface;
 class Reviews extends AbstractHelper
 {
 
-    const XML_PATH_REVIEWS_ENABLED = 'magmodules_thefeedbackcompany/reviews/enabled';
-    const XML_PATH_REVIEWS_CLIENT_ID = 'magmodules_thefeedbackcompany/api/client_id';
-    const XML_PATH_REVIEWS_CLIENT_SECRET = 'magmodules_thefeedbackcompany/api/client_secret';
-    const XML_PATH_REVIEWS_CLIENT_TOKEN = 'magmodules_thefeedbackcompany/api/client_token';
-    const XML_PATH_REVIEWS_RESULT = 'magmodules_thefeedbackcompany/reviews/result';
-    const XML_PATH_REVIEWS_LAST_IMPORT = 'magmodules_thefeedbackcompany/reviews/last_import';
+    const XML_PATH_REVIEWS_ENABLED = 'feedbackcompany/reviews/enabled';
+    const XML_PATH_REVIEWS_CLIENT_ID = 'feedbackcompany/api/client_id';
+    const XML_PATH_REVIEWS_CLIENT_SECRET = 'feedbackcompany/api/client_secret';
+    const XML_PATH_REVIEWS_CLIENT_TOKEN = 'feedbackcompany/api/client_token';
+    const XML_PATH_REVIEWS_RESULT = 'feedbackcompany/reviews/result';
+    const XML_PATH_REVIEWS_LAST_IMPORT = 'feedbackcompany/reviews/last_import';
 
     /**
      * @var DateTime

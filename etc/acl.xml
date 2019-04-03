@@ -12,7 +12,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Magmodules_TheFeedbackCompany::config" title="TheFeedbackCompany" sortOrder="80" />
+                            <resource id="FeedbackCompany::config" title="FeedbackCompany" sortOrder="80" />
                         </resource>
                     </resource>
                 </resource>

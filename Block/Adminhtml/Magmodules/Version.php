@@ -4,11 +4,11 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Block\Adminhtml\Magmodules;
+namespace FeedbackCompany\Block\Adminhtml\Magmodules;
 
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use Magmodules\TheFeedbackCompany\Helper\General as GeneralHelper;
+use FeedbackCompany\Helper\General as GeneralHelper;
 use Magento\Backend\Block\Template\Context;
 
 class Version extends Field

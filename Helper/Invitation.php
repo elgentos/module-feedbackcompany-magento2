@@ -4,28 +4,28 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Helper;
+namespace FeedbackCompany\Helper;
 
 use Magento\Framework\App\Helper\Context;
 use Magento\Catalog\Model\ProductFactory;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\UrlInterface;
-use Magmodules\TheFeedbackCompany\Helper\General as GeneralHelper;
+use FeedbackCompany\Helper\General as GeneralHelper;
 
 class Invitation extends AbstractHelper
 {
 
     const POST_ACTION = 'sendInvitation';
-    const XML_PATH_INVITATION_ENABLED = 'magmodules_thefeedbackcompany/invitation/enabled';
-    const XML_PATH_INVITATION_CONNECTOR = 'magmodules_thefeedbackcompany/invitation/connector';
-    const XML_PATH_INVITATION_STATUS = 'magmodules_thefeedbackcompany/invitation/status';
-    const XML_PATH_INVITATION_DELAY = 'magmodules_thefeedbackcompany/invitation/delay';
-    const XML_PATH_INVITATION_REMIND_DELAY = 'magmodules_thefeedbackcompany/invitation/remind_delay';
-    const XML_PATH_INVITATION_BACKLOG = 'magmodules_thefeedbackcompany/invitation/backlog';
-    const XML_PATH_INVITATION_RESEND = 'magmodules_thefeedbackcompany/invitation/resend';
-    const XML_PATH_INVITATION_PREVIEWS = 'magmodules_thefeedbackcompany/invitation/product_reviews';
-    const XML_PATH_INVITATION_DEBUG = 'magmodules_thefeedbackcompany/invitation/debug';
+    const XML_PATH_INVITATION_ENABLED = 'feedbackcompany/invitation/enabled';
+    const XML_PATH_INVITATION_CONNECTOR = 'feedbackcompany/invitation/connector';
+    const XML_PATH_INVITATION_STATUS = 'feedbackcompany/invitation/status';
+    const XML_PATH_INVITATION_DELAY = 'feedbackcompany/invitation/delay';
+    const XML_PATH_INVITATION_REMIND_DELAY = 'feedbackcompany/invitation/remind_delay';
+    const XML_PATH_INVITATION_BACKLOG = 'feedbackcompany/invitation/backlog';
+    const XML_PATH_INVITATION_RESEND = 'feedbackcompany/invitation/resend';
+    const XML_PATH_INVITATION_PREVIEWS = 'feedbackcompany/invitation/product_reviews';
+    const XML_PATH_INVITATION_DEBUG = 'feedbackcompany/invitation/debug';
 
     /**
      * @var ProductFactory

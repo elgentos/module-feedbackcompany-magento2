@@ -4,14 +4,14 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Controller\Adminhtml\Actions;
+namespace FeedbackCompany\Controller\Adminhtml\Actions;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\Framework\Controller\Result\JsonFactory;
-use Magmodules\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
-use Magmodules\TheFeedbackCompany\Model\Api as ApiModel;
+use FeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\Model\Api as ApiModel;
 
 class Import extends Action
 {

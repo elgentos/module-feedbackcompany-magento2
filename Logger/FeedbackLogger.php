@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Logger;
+namespace FeedbackCompany\Logger;
 
 use Monolog\Logger;
 

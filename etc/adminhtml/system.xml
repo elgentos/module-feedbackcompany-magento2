@@ -10,10 +10,10 @@
         <tab id="magmodules" translate="label" sortOrder="500">
             <label>Magmodules</label>
         </tab>
-        <section id="magmodules_thefeedbackcompany" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="feedbackcompany" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Feedback Company</label>
             <tab>magmodules</tab>
-            <resource>Magmodules_TheFeedbackCompany::config</resource>
+            <resource>FeedbackCompany::config</resource>
             <!--<group id="branding" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Branding</label>
                 <frontend_model>Magmodules\TheFeedbackCompany\Block\Adminhtml\Magmodules\Header</frontend_model>
@@ -22,7 +22,7 @@
                 <label>General</label>
                 <field id="version" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Version</label>
-                    <frontend_model>Magmodules\TheFeedbackCompany\Block\Adminhtml\Magmodules\Version</frontend_model>
+                    <frontend_model>FeedbackCompany\Block\Adminhtml\Magmodules\Version</frontend_model>
                 </field>
                 <field id="enabled" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Enabled</label>
@@ -34,7 +34,7 @@
                 <comment>You can find the necessary information in your Feedback Company dashboard. As addition next to the activation of this extension we also recommend you to place the appropriate Feedback Company logo.</comment>
                 <field id="client_id" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>OAuth Client ID</label>
-                    <backend_model>Magmodules\TheFeedbackCompany\Model\System\Config\Backend\ClientId</backend_model>
+                    <backend_model>FeedbackCompany\Model\System\Config\Backend\ClientId</backend_model>
                 </field>
                 <field id="client_secret" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>OAuth Client Secret</label>
@@ -56,11 +56,11 @@
                 </field>
 				<field id="generate" translate="label" type="button" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Import</label>
-					<frontend_model>Magmodules\TheFeedbackCompany\Block\Adminhtml\System\Config\Form\ImportButton</frontend_model>
+					<frontend_model>FeedbackCompany\Block\Adminhtml\System\Config\Form\ImportButton</frontend_model>
                     <depends><field id="enabled">1</field></depends>
 				</field>
                 <field id="review_summary" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
-					<frontend_model>Magmodules\TheFeedbackCompany\Block\Adminhtml\System\Config\Form\ReviewSummary</frontend_model>
+					<frontend_model>FeedbackCompany\Block\Adminhtml\System\Config\Form\ReviewSummary</frontend_model>
                     <depends><field id="enabled">1</field></depends>
                 </field>
             </group>
@@ -78,7 +78,7 @@
                 </field>
                 <field id="status" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Status</label>
-                    <source_model>Magmodules\TheFeedbackCompany\Model\System\Config\Source\Status</source_model>
+                    <source_model>FeedbackCompany\Model\System\Config\Source\Status</source_model>
                     <comment>Select the status when the order is ready to be sent to Feedback Company.</comment>
                     <depends><field id="enabled">1</field></depends>
                 </field>

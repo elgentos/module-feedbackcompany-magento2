@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Model\System\Config\Source;
+namespace FeedbackCompany\Model\System\Config\Source;
 
 use Magento\Framework\Option\ArrayInterface;
 use Magento\Sales\Model\Order\Config;
