@@ -7,10 +7,10 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="FeedbackCompany" translate="label" sortOrder="500">
+        <tab id="feedbackcompany" translate="label" sortOrder="500">
             <label>FeedbackCompany</label>
         </tab>
-        <section id="FeedbackCompany_thefeedbackcompany" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="feedbackcompany_thefeedbackcompany" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Feedback Company</label>
             <tab>FeedbackCompany</tab>
             <resource>FeedbackCompany_TheFeedbackCompany::config</resource>

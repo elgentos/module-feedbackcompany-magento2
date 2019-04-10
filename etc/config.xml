@@ -7,7 +7,7 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <FeedbackCompany_thefeedbackcompany>
+        <feedbackcompany_thefeedbackcompany>
 			<reviews>
 				<enabled>0</enabled>
 				<cron>0</cron>
@@ -22,7 +22,7 @@
 				<product_reviews>1</product_reviews>
 				<debug>1</debug>
 			</invitation>
-        </FeedbackCompany_thefeedbackcompany>
+        </feedbackcompany_thefeedbackcompany>
     	<widget>
 			<fbc_small_widget>
 				<template>small</template>

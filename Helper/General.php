@@ -20,7 +20,7 @@ class General extends AbstractHelper
 {
 
     const MODULE_CODE = 'FeedbackCompany_TheFeedbackCompany';
-    const XML_PATH_EXTENSION_ENABLED = 'FeedbackCompany_thefeedbackcompany/general/enabled';
+    const XML_PATH_EXTENSION_ENABLED = 'feedbackcompany_thefeedbackcompany/general/enabled';
 
     /**
      * @var ModuleListInterface

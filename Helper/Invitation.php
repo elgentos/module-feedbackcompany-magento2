@@ -17,15 +17,15 @@ class Invitation extends AbstractHelper
 {
 
     const POST_ACTION = 'sendInvitation';
-    const XML_PATH_INVITATION_ENABLED = 'FeedbackCompany_thefeedbackcompany/invitation/enabled';
-    const XML_PATH_INVITATION_CONNECTOR = 'FeedbackCompany_thefeedbackcompany/invitation/connector';
-    const XML_PATH_INVITATION_STATUS = 'FeedbackCompany_thefeedbackcompany/invitation/status';
-    const XML_PATH_INVITATION_DELAY = 'FeedbackCompany_thefeedbackcompany/invitation/delay';
-    const XML_PATH_INVITATION_REMIND_DELAY = 'FeedbackCompany_thefeedbackcompany/invitation/remind_delay';
-    const XML_PATH_INVITATION_BACKLOG = 'FeedbackCompany_thefeedbackcompany/invitation/backlog';
-    const XML_PATH_INVITATION_RESEND = 'FeedbackCompany_thefeedbackcompany/invitation/resend';
-    const XML_PATH_INVITATION_PREVIEWS = 'FeedbackCompany_thefeedbackcompany/invitation/product_reviews';
-    const XML_PATH_INVITATION_DEBUG = 'FeedbackCompany_thefeedbackcompany/invitation/debug';
+    const XML_PATH_INVITATION_ENABLED = 'feedbackcompany_thefeedbackcompany/invitation/enabled';
+    const XML_PATH_INVITATION_CONNECTOR = 'feedbackcompany_thefeedbackcompany/invitation/connector';
+    const XML_PATH_INVITATION_STATUS = 'feedbackcompany_thefeedbackcompany/invitation/status';
+    const XML_PATH_INVITATION_DELAY = 'feedbackcompany_thefeedbackcompany/invitation/delay';
+    const XML_PATH_INVITATION_REMIND_DELAY = 'feedbackcompany_thefeedbackcompany/invitation/remind_delay';
+    const XML_PATH_INVITATION_BACKLOG = 'feedbackcompany_thefeedbackcompany/invitation/backlog';
+    const XML_PATH_INVITATION_RESEND = 'feedbackcompany_thefeedbackcompany/invitation/resend';
+    const XML_PATH_INVITATION_PREVIEWS = 'feedbackcompany_thefeedbackcompany/invitation/product_reviews';
+    const XML_PATH_INVITATION_DEBUG = 'feedbackcompany_thefeedbackcompany/invitation/debug';
 
     /**
      * @var ProductFactory

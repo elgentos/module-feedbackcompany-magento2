@@ -49,7 +49,7 @@ class Header extends Field
      */
     public function render(AbstractElement $element)
     {
-        $element->addClass('FeedbackCompany');
+        $element->addClass('feedbackcompany');
 
         return $this->toHtml();
     }

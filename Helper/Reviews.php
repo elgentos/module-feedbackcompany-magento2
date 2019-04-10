@@ -17,12 +17,12 @@ use Magento\Framework\App\Cache\TypeListInterface;
 class Reviews extends AbstractHelper
 {
 
-    const XML_PATH_REVIEWS_ENABLED = 'FeedbackCompany_thefeedbackcompany/reviews/enabled';
-    const XML_PATH_REVIEWS_CLIENT_ID = 'FeedbackCompany_thefeedbackcompany/api/client_id';
-    const XML_PATH_REVIEWS_CLIENT_SECRET = 'FeedbackCompany_thefeedbackcompany/api/client_secret';
-    const XML_PATH_REVIEWS_CLIENT_TOKEN = 'FeedbackCompany_thefeedbackcompany/api/client_token';
-    const XML_PATH_REVIEWS_RESULT = 'FeedbackCompany_thefeedbackcompany/reviews/result';
-    const XML_PATH_REVIEWS_LAST_IMPORT = 'FeedbackCompany_thefeedbackcompany/reviews/last_import';
+    const XML_PATH_REVIEWS_ENABLED = 'feedbackcompany_thefeedbackcompany/reviews/enabled';
+    const XML_PATH_REVIEWS_CLIENT_ID = 'feedbackcompany_thefeedbackcompany/api/client_id';
+    const XML_PATH_REVIEWS_CLIENT_SECRET = 'feedbackcompany_thefeedbackcompany/api/client_secret';
+    const XML_PATH_REVIEWS_CLIENT_TOKEN = 'feedbackcompany_thefeedbackcompany/api/client_token';
+    const XML_PATH_REVIEWS_RESULT = 'feedbackcompany_thefeedbackcompany/reviews/result';
+    const XML_PATH_REVIEWS_LAST_IMPORT = 'feedbackcompany_thefeedbackcompany/reviews/last_import';
 
     /**
      * @var DateTime
