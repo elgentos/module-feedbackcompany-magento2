@@ -6,20 +6,20 @@
  */
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget id="fbc_summay_widget" class="FeedbackCompany\Block\Widget\Summary" placeholder_image="FeedbackCompany::images/summary_widget.png">
+    <widget id="fbc_summay_widget" class="FeedbackCompany\TheFeedbackCompany\Block\Widget\Summary" placeholder_image="FeedbackCompany_TheFeedbackCompany::images/summary_widget.png">
 		<label translate="true">Feedback Company - Summary Widget</label>
 		<description>Add Feedback Company summary widget</description>
         <parameters>
 			<parameter name="template" xsi:type="select" visible="true" sort_order="1">
 				<label translate="true">Template</label>
                 <options>
-                    <option name="small" value="FeedbackCompany::widget/small.phtml">
+                    <option name="small" value="FeedbackCompany_TheFeedbackCompany::widget/small.phtml">
                         <label translate="true">Small Summary Widget</label>
                     </option>
-                    <option name="medium" value="FeedbackCompany::widget/medium.phtml">
+                    <option name="medium" value="FeedbackCompany_TheFeedbackCompany::widget/medium.phtml">
                         <label translate="true">Medium Summary Widget</label>
                     </option>
-                    <option name="big" value="FeedbackCompany::widget/big.phtml">
+                    <option name="big" value="FeedbackCompany_TheFeedbackCompany::widget/big.phtml">
                         <label translate="true">Big Summary Widget</label>
                     </option>
                 </options>

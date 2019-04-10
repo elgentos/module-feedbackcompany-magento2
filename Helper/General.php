@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Helper;
+namespace FeedbackCompany\TheFeedbackCompany\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
@@ -14,13 +14,13 @@ use Magento\Store\Model\ScopeInterface;
 use Magento\Config\Model\ResourceModel\Config;
 use Magento\Framework\Module\ModuleListInterface;
 use Magento\Framework\App\ProductMetadataInterface;
-use FeedbackCompany\Logger\FeedbackLogger;
+use FeedbackCompany\TheFeedbackCompany\Logger\FeedbackLogger;
 
 class General extends AbstractHelper
 {
 
-    const MODULE_CODE = 'FeedbackCompany';
-    const XML_PATH_EXTENSION_ENABLED = 'feedbackcompany/general/enabled';
+    const MODULE_CODE = 'FeedbackCompany_TheFeedbackCompany';
+    const XML_PATH_EXTENSION_ENABLED = 'FeedbackCompany_thefeedbackcompany/general/enabled';
 
     /**
      * @var ModuleListInterface

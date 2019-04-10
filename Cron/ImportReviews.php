@@ -4,9 +4,9 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Cron;
+namespace FeedbackCompany\TheFeedbackCompany\Cron;
 
-use FeedbackCompany\Model\Api as ApiModel;
+use FeedbackCompany\TheFeedbackCompany\Model\Api as ApiModel;
 
 class ImportReviews
 {

@@ -4,12 +4,12 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Block\Adminhtml\System\Config\Form;
+namespace FeedbackCompany\TheFeedbackCompany\Block\Adminhtml\System\Config\Form;
 
 use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use FeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 
 class ReviewSummary extends Field
 {
@@ -17,7 +17,7 @@ class ReviewSummary extends Field
     /**
      * @var string
      */
-    protected $_template = 'FeedbackCompany::system/config/fieldset/summary.phtml';
+    protected $_template = 'FeedbackCompany_TheFeedbackCompany::system/config/fieldset/summary.phtml';
 
     /**
      * @var ReviewsHelper

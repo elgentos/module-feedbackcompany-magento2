@@ -4,11 +4,11 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Observer;
+namespace FeedbackCompany\TheFeedbackCompany\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
-use FeedbackCompany\Model\Api as ApiModel;
+use FeedbackCompany\TheFeedbackCompany\Model\Api as ApiModel;
 use Psr\Log\LoggerInterface;
 
 class OrderSave implements ObserverInterface

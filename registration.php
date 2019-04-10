@@ -6,4 +6,4 @@
 
 use \Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'FeedbackCompany', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'FeedbackCompany_TheFeedbackCompany', __DIR__);

@@ -4,11 +4,11 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Model;
+namespace FeedbackCompany\TheFeedbackCompany\Model;
 
-use FeedbackCompany\Helper\General as GeneralHelper;
-use FeedbackCompany\Helper\Invitation as InvitationHelper;
-use FeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\General as GeneralHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\Invitation as InvitationHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 use Magento\Framework\HTTP\Adapter\Curl;
 use Magento\Framework\Stdlib\DateTime;
 use Magento\Sales\Model\Order;

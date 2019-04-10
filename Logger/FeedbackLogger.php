@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Logger;
+namespace FeedbackCompany\TheFeedbackCompany\Logger;
 
 use Monolog\Logger;
 

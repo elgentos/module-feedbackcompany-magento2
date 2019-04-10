@@ -4,14 +4,14 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Controller\Adminhtml\Actions;
+namespace FeedbackCompany\TheFeedbackCompany\Controller\Adminhtml\Actions;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\Framework\Controller\Result\JsonFactory;
-use FeedbackCompany\Helper\Reviews as ReviewsHelper;
-use FeedbackCompany\Model\Api as ApiModel;
+use FeedbackCompany\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\TheFeedbackCompany\Model\Api as ApiModel;
 
 class Import extends Action
 {
@@ -124,6 +124,6 @@ class Import extends Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Magmodules_TheFeedbackCompany::config');
+        return $this->_authorization->isAllowed('FeedbackCompany_TheFeedbackCompany::config');
     }
 }

@@ -4,14 +4,14 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Model\System\Config\Backend;
+namespace FeedbackCompany\TheFeedbackCompany\Model\System\Config\Backend;
 
 use Magento\Framework\App\Config\Value;
 use Magento\Framework\Model\Context;
 use Magento\Framework\Registry;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Cache\TypeListInterface;
-use FeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\Data\Collection\AbstractDb;
 

@@ -4,11 +4,11 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Block\Adminhtml\Magmodules;
+namespace FeedbackCompany\TheFeedbackCompany\Block\Adminhtml\FeedbackCompany;
 
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use FeedbackCompany\Helper\General as GeneralHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\General as GeneralHelper;
 use Magento\Backend\Block\Template\Context;
 
 class Header extends Field
@@ -26,7 +26,7 @@ class Header extends Field
     /**
      * @var string
      */
-    protected $_template = 'FeedbackCompany::system/config/fieldset/header.phtml';
+    protected $_template = 'FeedbackCompany_TheFeedbackCompany::system/config/fieldset/header.phtml';
 
     /**
      * Header constructor.
@@ -49,7 +49,7 @@ class Header extends Field
      */
     public function render(AbstractElement $element)
     {
-        $element->addClass('magmodules');
+        $element->addClass('FeedbackCompany');
 
         return $this->toHtml();
     }

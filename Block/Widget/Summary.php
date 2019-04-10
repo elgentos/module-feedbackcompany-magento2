@@ -4,12 +4,12 @@
  * See COPYING.txt for license details.
  */
 
-namespace FeedbackCompany\Block\Widget;
+namespace FeedbackCompany\TheFeedbackCompany\Block\Widget;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Backend\Block\Template\Context;
-use FeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 
 class Summary extends Template implements BlockInterface
 {
