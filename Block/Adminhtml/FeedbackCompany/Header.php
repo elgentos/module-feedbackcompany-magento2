@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -15,8 +15,8 @@ class Header extends Field
 {
 
     const MODULE_CODE = 'feedbackcompany-magento2';
-    const MODULE_SUPPORT_LINK = 'https://www.magmodules.eu/help/' . self::MODULE_CODE;
-    const MODULE_CONTACT_LINK = 'https://www.magmodules.eu/support.html?ext=' . self::MODULE_CODE;
+    const MODULE_SUPPORT_LINK = 'https://feedbackcompany.wixanswers.com/en/article/magento-2' . self::MODULE_CODE;
+    const MODULE_CONTACT_LINK = 'https://www.feedbackcompany.com' . self::MODULE_CODE;
 
     /**
      * @var GeneralHelper
@@ -64,7 +64,7 @@ class Header extends Field
         $extVersion = $this->general->getExtensionVersion();
         $magVersion = $this->general->getMagentoVersion();
 
-        return sprintf('https://www.magmodules.eu/logo/%s/%s/%s/logo.png', self::MODULE_CODE, $extVersion, $magVersion);
+        return sprintf('https://www.feedbackcompany.com', self::MODULE_CODE, $extVersion, $magVersion);
     }
 
     /**
