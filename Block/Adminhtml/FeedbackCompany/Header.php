@@ -14,9 +14,8 @@ use Magento\Backend\Block\Template\Context;
 class Header extends Field
 {
 
-    const MODULE_CODE = 'feedbackcompany-magento2';
-    const MODULE_SUPPORT_LINK = 'https://feedbackcompany.wixanswers.com/en/article/magento-2' . self::MODULE_CODE;
-    const MODULE_CONTACT_LINK = 'https://www.feedbackcompany.com' . self::MODULE_CODE;
+    const MODULE_SUPPORT_LINK = 'https://feedbackcompany.wixanswers.com/en/article/magento-2';
+    const MODULE_CONTACT_LINK = 'https://www.feedbackcompany.com';
 
     /**
      * @var GeneralHelper
@@ -64,7 +63,7 @@ class Header extends Field
         $extVersion = $this->general->getExtensionVersion();
         $magVersion = $this->general->getMagentoVersion();
 
-        return sprintf('https://www.feedbackcompany.com', self::MODULE_CODE, $extVersion, $magVersion);
+        return;
     }
 
     /**
