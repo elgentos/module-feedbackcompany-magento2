@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Block\Widget;
+namespace FeedbackCompany\TheFeedbackCompany\Block\Widget;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Backend\Block\Template\Context;
-use Magmodules\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 
 class Summary extends Template implements BlockInterface
 {

@@ -1,12 +1,12 @@
 <?php
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Helper;
+namespace FeedbackCompany\TheFeedbackCompany\Helper;
 
-use Magmodules\TheFeedbackCompany\Helper\General as GeneralHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\General as GeneralHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\StoreManagerInterface;
@@ -17,12 +17,12 @@ use Magento\Framework\App\Cache\TypeListInterface;
 class Reviews extends AbstractHelper
 {
 
-    const XML_PATH_REVIEWS_ENABLED = 'magmodules_thefeedbackcompany/reviews/enabled';
-    const XML_PATH_REVIEWS_CLIENT_ID = 'magmodules_thefeedbackcompany/api/client_id';
-    const XML_PATH_REVIEWS_CLIENT_SECRET = 'magmodules_thefeedbackcompany/api/client_secret';
-    const XML_PATH_REVIEWS_CLIENT_TOKEN = 'magmodules_thefeedbackcompany/api/client_token';
-    const XML_PATH_REVIEWS_RESULT = 'magmodules_thefeedbackcompany/reviews/result';
-    const XML_PATH_REVIEWS_LAST_IMPORT = 'magmodules_thefeedbackcompany/reviews/last_import';
+    const XML_PATH_REVIEWS_ENABLED = 'feedbackcompany_thefeedbackcompany/reviews/enabled';
+    const XML_PATH_REVIEWS_CLIENT_ID = 'feedbackcompany_thefeedbackcompany/api/client_id';
+    const XML_PATH_REVIEWS_CLIENT_SECRET = 'feedbackcompany_thefeedbackcompany/api/client_secret';
+    const XML_PATH_REVIEWS_CLIENT_TOKEN = 'feedbackcompany_thefeedbackcompany/api/client_token';
+    const XML_PATH_REVIEWS_RESULT = 'feedbackcompany_thefeedbackcompany/reviews/result';
+    const XML_PATH_REVIEWS_LAST_IMPORT = 'feedbackcompany_thefeedbackcompany/reviews/last_import';
 
     /**
      * @var DateTime

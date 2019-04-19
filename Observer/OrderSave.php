@@ -1,14 +1,14 @@
 <?php
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Observer;
+namespace FeedbackCompany\TheFeedbackCompany\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
-use Magmodules\TheFeedbackCompany\Model\Api as ApiModel;
+use FeedbackCompany\TheFeedbackCompany\Model\Api as ApiModel;
 use Psr\Log\LoggerInterface;
 
 class OrderSave implements ObserverInterface

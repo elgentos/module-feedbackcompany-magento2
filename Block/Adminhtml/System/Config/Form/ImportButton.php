@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Block\Adminhtml\System\Config\Form;
+namespace FeedbackCompany\TheFeedbackCompany\Block\Adminhtml\System\Config\Form;
 
 use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use Magmodules\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 
 class ImportButton extends Field
 {
@@ -27,7 +27,7 @@ class ImportButton extends Field
     /**
      * @var string
      */
-    protected $_template = 'Magmodules_TheFeedbackCompany::system/config/button/button.phtml';
+    protected $_template = 'FeedbackCompany_TheFeedbackCompany::system/config/button/button.phtml';
 
     /**
      * @param Context       $context

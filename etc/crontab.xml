@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 -->
 <!--suppress ALL -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
 	<group id="default">
-		<job name="fbc_import_reviews" instance="Magmodules\TheFeedbackCompany\Cron\ImportReviews" method="execute">
+		<job name="fbc_import_reviews" instance="FeedbackCompany\TheFeedbackCompany\Cron\ImportReviews" method="execute">
 			<schedule>0 * * * *</schedule>
 		</job>
 	</group>

@@ -1,31 +1,31 @@
 <?php
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Helper;
+namespace FeedbackCompany\TheFeedbackCompany\Helper;
 
 use Magento\Framework\App\Helper\Context;
 use Magento\Catalog\Model\ProductFactory;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\UrlInterface;
-use Magmodules\TheFeedbackCompany\Helper\General as GeneralHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\General as GeneralHelper;
 
 class Invitation extends AbstractHelper
 {
 
     const POST_ACTION = 'sendInvitation';
-    const XML_PATH_INVITATION_ENABLED = 'magmodules_thefeedbackcompany/invitation/enabled';
-    const XML_PATH_INVITATION_CONNECTOR = 'magmodules_thefeedbackcompany/invitation/connector';
-    const XML_PATH_INVITATION_STATUS = 'magmodules_thefeedbackcompany/invitation/status';
-    const XML_PATH_INVITATION_DELAY = 'magmodules_thefeedbackcompany/invitation/delay';
-    const XML_PATH_INVITATION_REMIND_DELAY = 'magmodules_thefeedbackcompany/invitation/remind_delay';
-    const XML_PATH_INVITATION_BACKLOG = 'magmodules_thefeedbackcompany/invitation/backlog';
-    const XML_PATH_INVITATION_RESEND = 'magmodules_thefeedbackcompany/invitation/resend';
-    const XML_PATH_INVITATION_PREVIEWS = 'magmodules_thefeedbackcompany/invitation/product_reviews';
-    const XML_PATH_INVITATION_DEBUG = 'magmodules_thefeedbackcompany/invitation/debug';
+    const XML_PATH_INVITATION_ENABLED = 'feedbackcompany_thefeedbackcompany/invitation/enabled';
+    const XML_PATH_INVITATION_CONNECTOR = 'feedbackcompany_thefeedbackcompany/invitation/connector';
+    const XML_PATH_INVITATION_STATUS = 'feedbackcompany_thefeedbackcompany/invitation/status';
+    const XML_PATH_INVITATION_DELAY = 'feedbackcompany_thefeedbackcompany/invitation/delay';
+    const XML_PATH_INVITATION_REMIND_DELAY = 'feedbackcompany_thefeedbackcompany/invitation/remind_delay';
+    const XML_PATH_INVITATION_BACKLOG = 'feedbackcompany_thefeedbackcompany/invitation/backlog';
+    const XML_PATH_INVITATION_RESEND = 'feedbackcompany_thefeedbackcompany/invitation/resend';
+    const XML_PATH_INVITATION_PREVIEWS = 'feedbackcompany_thefeedbackcompany/invitation/product_reviews';
+    const XML_PATH_INVITATION_DEBUG = 'feedbackcompany_thefeedbackcompany/invitation/debug';
 
     /**
      * @var ProductFactory

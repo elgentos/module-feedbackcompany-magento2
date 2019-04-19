@@ -1,17 +1,17 @@
 <?php
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Controller\Adminhtml\Actions;
+namespace FeedbackCompany\TheFeedbackCompany\Controller\Adminhtml\Actions;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\Framework\Controller\Result\JsonFactory;
-use Magmodules\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
-use Magmodules\TheFeedbackCompany\Model\Api as ApiModel;
+use FeedbackCompany\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\TheFeedbackCompany\Model\Api as ApiModel;
 
 class Import extends Action
 {
@@ -124,6 +124,6 @@ class Import extends Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Magmodules_TheFeedbackCompany::config');
+        return $this->_authorization->isAllowed('FeedbackCompany_TheFeedbackCompany::config');
     }
 }

@@ -1,10 +1,10 @@
 <?php
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Logger;
+namespace FeedbackCompany\TheFeedbackCompany\Logger;
 
 use Monolog\Logger;
 use Magento\Framework\Logger\Handler\Base;

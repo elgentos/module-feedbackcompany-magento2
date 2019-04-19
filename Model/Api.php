@@ -1,14 +1,14 @@
 <?php
 /**
- * Copyright © 2017 Magmodules.eu. All rights reserved.
+ * Copyright © 2017 Feedback Company. All rights reserved.
  * See COPYING.txt for license details.
  */
 
-namespace Magmodules\TheFeedbackCompany\Model;
+namespace FeedbackCompany\TheFeedbackCompany\Model;
 
-use Magmodules\TheFeedbackCompany\Helper\General as GeneralHelper;
-use Magmodules\TheFeedbackCompany\Helper\Invitation as InvitationHelper;
-use Magmodules\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\General as GeneralHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\Invitation as InvitationHelper;
+use FeedbackCompany\TheFeedbackCompany\Helper\Reviews as ReviewsHelper;
 use Magento\Framework\HTTP\Adapter\Curl;
 use Magento\Framework\Stdlib\DateTime;
 use Magento\Sales\Model\Order;

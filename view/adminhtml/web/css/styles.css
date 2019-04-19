@@ -132,14 +132,14 @@
     color: red;
 }
 
-#row_magmodules_thefeedbackcompany_reviews_review_summary .field-summary-rating {
+#row_feedbackcompany_thefeedbackcompany_reviews_review_summary .field-summary-rating {
     border-top: 1px solid #e3e3e3;
     padding-top: 10px;
     line-height: 22px;
     margin-top: 10px;
 }
 
-#row_magmodules_thefeedbackcompany_reviews_review_summary .field-summary-rating .rating-box {
+#row_feedbackcompany_thefeedbackcompany_reviews_review_summary .field-summary-rating .rating-box {
     margin-bottom: 5px;
     float: left;
 }
